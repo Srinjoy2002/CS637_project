@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz,pgfplots,pgfplotstable}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{piton}
+
+\pgfplotsset{compat=1.18}
+\pgfplotsset{compat/labels=pre 1.3}
+\usepgfplotslibrary{groupplots}
+
+\renewcommand{\a}{a}
+\newcommand{\maxa}{\bar{\a}}
+\newcommand{\alength}{\ell}
+
+\title{Stealthy Computational Delay Attacks on Control Systems}
+
+\begin{document}
+\maketitle
+
+\centering
+\begin{tikzpicture} 
+    \begin{axis} [
+    %
+    yticklabel style = {/pgf/number format/fixed, /pgf/number format/precision=5},
+    scaled y ticks=false,
+    %
+    height=8cm, width = 0.75\textwidth,
+    %
+    ymin = 0, ymax=0.0001,
+    xmin = 1, xmax = 25,
+    ylabel style={yshift=.3cm},
+    xlabel={$\alength$}, xlabel near ticks,
+    grid=major,
+    xtick = {5, 10, 15, 20, 25},
+    grid style = {densely dashed, black!30},
+    legend style={draw = none, at={(1.05,1.05)}, anchor=south, font=\small},
+    legend columns = 1]
+   
+    % reading files for pendulum
+    \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a3_p0.25_alpha0.01_w20.csv}\attackthreetwentyfive
+   
+    % PENDULUM -----------------------------------------------------------------------------------------------------------------------------------
+    \addplot[thick, brown, mark=x]
+      table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackthreetwentyfive};
+    \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0001) {$\maxa = 3$}; 
+
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

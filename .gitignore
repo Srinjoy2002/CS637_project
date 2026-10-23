@@ -1,0 +1,15 @@
+.venv*/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+outputs/
+*.aux
+*.log
+*.nav
+*.snm
+*.toc
+*.out
+*.synctex.gz
+*.lic
+.env
+.DS_Store

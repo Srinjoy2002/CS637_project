@@ -1,0 +1,11 @@
+case,system,ell,schedule,window,detector,hold_omega,zero_same_schedule_omega,longest_miss_run,max_window_misses,window_allowance,chi2,chi2_pass,provenance
+table1_w10,furuta,25,1110111000111000111011100,10,bin,0.1441202611479676,-7.280194332770301e-06,3,6,6,187.30303030303028,False,"Published Table 1, supplied ZIP"
+table1_w12,furuta,25,1011110001101000111101100,12,bin,0.0782223389247697,-5.7240247932025995e-06,4,7,7,86.22222222222223,False,"Published Table 1, supplied ZIP"
+table1_w14,furuta,25,1101111000110001111011000,14,bin,0.08798616388762677,-7.358511289656112e-06,4,8,8,94.77777777777777,False,"Published Table 1, supplied ZIP"
+fig2_furuta_5,furuta,5,11010,20,bin_chi2,-8.79656412801295e-06,2.7385542312648513e-05,2,3,10,6.333333333333333,True,"Earlier reviewed visualization, paper Section 5.4.1"
+fig2_furuta_15,furuta,15,101011011101000,20,bin_chi2,0.00011829780556136841,8.455747738807556e-05,3,8,10,12.833333333333332,True,"Earlier reviewed visualization, paper Section 5.4.1"
+fig2_furuta_25,furuta,25,1100000000010110111011010,20,bin_chi2,9.011742228143032e-06,2.8814598560752076e-05,3,9,10,12.11111111111111,True,"Earlier reviewed visualization, paper Section 5.4.1"
+audited_furuta,furuta,23,11101100011110001101111,10,bin,0.04239476046779181,-4.926619529919419e-06,4,6,6,126.11111111111111,False,"Earlier audited visualization, best found schedule"
+tank_bin,tank,10,1111011110,20,bin,0.003161519146583927,0.009231094952295196,4,8,10,338.77777777777777,False,"Earlier reviewed visualization, exhaustive 10-period search reproduced here"
+tank_bin_chi2,tank,10,1110100000,20,bin_chi2,0.0020735174735384138,0.004398665202217142,3,4,10,10.714285714285714,True,"Earlier reviewed visualization, exhaustive 10-period search reproduced here"
+audited_tank,tank,23,11110110001000000000000,10,bin,0.0015488003569012407,0.003834672783450087,4,6,6,15.0,False,"Earlier audited visualization, best found schedule"

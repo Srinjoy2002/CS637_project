@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[right=2cm, left=2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz,pgfplots,pgfplotstable}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{piton}
+
+\pgfplotsset{compat=1.18}
+\pgfplotsset{compat/labels=pre 1.3}
+\usepgfplotslibrary{groupplots}
+
+\renewcommand{\a}{a}
+\newcommand{\maxa}{\bar{\a}}
+\newcommand{\alength}{\ell}
+\newcommand{\vecsize}[1]{n_{#1}}
+\newcommand{\iteration}{w}
+\newcommand{\aeffect}{\omega}
+\newcommand{\pmiss}{\hat{p}_{\text{m}}}
+
+
+\title{Stealthy Computational Delay Attacks on Control Systems}
+
+\begin{document}
+\maketitle
+
+\begin{figure*}
+    \centering
+    \include{fig/zerohold}
+    \vspace{-1cm}
+    \caption{Attack effectiveness $\aeffect$ for the Furuta pendulum with zero and hold actuation strategy in case of a deadline miss, varying the window size $\vecsize{\iteration}$, with $\maxa=4$ and using the binomial test-based attack detection mechanism.}
+    %\vspace{-.35cm}
+    \label{fig:effect_zerohold}
+\end{figure*}
+
+\end{document}

@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8,<9
+numba>=0.60
+jupyterlab>=4,<5

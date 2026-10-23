@@ -1,0 +1,23 @@
+[
+  {
+    "window": 10,
+    "interior": "1110111000111000111011100",
+    "ell": 25,
+    "misses": 15,
+    "source": "Table 1, p.9"
+  },
+  {
+    "window": 12,
+    "interior": "1011110001101000111101100",
+    "ell": 25,
+    "misses": 14,
+    "source": "Table 1, p.9"
+  },
+  {
+    "window": 14,
+    "interior": "1101111000110001111011000",
+    "ell": 25,
+    "misses": 14,
+    "source": "Table 1, p.9"
+  }
+]

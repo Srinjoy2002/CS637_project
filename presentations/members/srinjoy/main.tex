@@ -1,0 +1,30 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,booktabs,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{forest}{HTML}{00704A}
+\definecolor{deepgreen}{HTML}{00583B}
+\definecolor{holdred}{HTML}{B42332}
+\definecolor{zeroteal}{HTML}{087F8C}
+\definecolor{ink}{HTML}{16372C}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=forest}
+\setbeamercolor{frametitle}{fg=white,bg=forest}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{frametitle}{\nointerlineskip\begin{beamercolorbox}[wd=\paperwidth,ht=.7cm,dp=.22cm,leftskip=.28cm]{frametitle}\insertframetitle\end{beamercolorbox}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\leavevmode\hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.2ex,dp=.85ex,center]{frametitle}\fontsize{5.5}{6}\selectfont Stealthy Computational Delay Attacks on Control Systems\end{beamercolorbox}\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.2ex,dp=.85ex,right]{frametitle}\fontsize{6}{7}\selectfont\insertframenumber\,/\,\inserttotalframenumber\hspace{2mm}\end{beamercolorbox}}}
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+\setlength{\parskip}{1mm}
+\pgfplotsset{trace/.style={axis line style={gray!60},tick style={gray!60},
+ grid=major,grid style={gray!15},tick label style={font=\scriptsize},
+ label style={font=\scriptsize},every axis plot/.append style={line join=round},
+ scaled x ticks=false,xticklabel style={/pgf/number format/fixed,/pgf/number format/precision=3},
+ enlarge x limits=false}}
+\newcommand{\source}[1]{\par\vspace{1mm}{\fontsize{5.5}{6.2}\selectfont\color{gray}#1\par}}
+\title{Visualization Cases and Defender Extension}
+\hypersetup{pdftitle={Visualization Cases and Defender Extension},pdfsubject={Six-slide evidence-based Beamer section}}
+\begin{document}
+\input{visualization_frames.tex}
+\end{document}

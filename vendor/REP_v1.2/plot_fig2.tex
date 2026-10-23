@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[right=2cm, left=2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz,pgfplots,pgfplotstable}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{piton}
+
+\pgfplotsset{compat=1.18}
+\pgfplotsset{compat/labels=pre 1.3}
+\usepgfplotslibrary{groupplots}
+
+\renewcommand{\a}{a}
+\newcommand{\maxa}{\bar{\a}}
+\newcommand{\alength}{\ell}
+\newcommand{\vecsize}[1]{n_{#1}}
+\newcommand{\iteration}{w}
+\newcommand{\aeffect}{\omega}
+\newcommand{\pmiss}{\hat{p}_{\text{m}}}
+
+
+\title{Stealthy Computational Delay Attacks on Control Systems}
+
+\begin{document}
+\maketitle
+
+\begin{figure*}
+    \centering
+    \include{fig/maxa}
+    \vspace{-1cm}
+    \caption{Attack effectiveness $\aeffect$ with window size $\vecsize{\iteration} = 20$ and combined binomial and $\chi^2$ detector. The tests are conducted using the hold actuation policy for the quadruple tank and the zero actuation policy for the Furuta pendulum.}
+    \vspace{-.35cm}
+    \label{fig:effect_maxa}
+\end{figure*}
+
+\end{document}

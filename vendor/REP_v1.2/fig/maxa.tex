@@ -1,0 +1,127 @@
+\begin{tikzpicture} 
+ \begin{groupplot} [%
+ group style={columns=4, rows=2,
+   xlabels at=edge bottom, ylabels at=edge left,
+   xticklabels at=edge bottom, yticklabels at=edge left,
+   horizontal sep=0.5cm, vertical sep=0.5cm},
+ yticklabel style = {/pgf/number format/fixed, /pgf/number format/precision=5},
+ scaled y ticks=false,
+ %
+ height=5cm, width = 0.25\textwidth,
+ %
+ ymin = 0,
+ xmin = 1, xmax = 25,
+ ylabel style={yshift=.3cm},
+ xlabel={$\alength$}, xlabel near ticks,
+ grid=major,
+ xtick = {5, 10, 15, 20, 25},
+ grid style = {densely dashed, black!30},
+ legend style={draw = none, at={(1.05,1.05)}, anchor=south, font=\small},
+ legend columns = 3]
+
+ % reading files for tanks
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a1_p0.09_alpha0.01_w20.csv}\attackonenineq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a1_p0.17_alpha0.01_w20.csv}\attackoneseventeenq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a1_p0.25_alpha0.01_w20.csv}\attackonetwentyfiveq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a2_p0.09_alpha0.01_w20.csv}\attacktwonineq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a2_p0.17_alpha0.01_w20.csv}\attacktwoseventeenq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a2_p0.25_alpha0.01_w20.csv}\attacktwotwentyfiveq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a3_p0.09_alpha0.01_w20.csv}\attackthreenineq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a3_p0.17_alpha0.01_w20.csv}\attackthreeseventeenq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a3_p0.25_alpha0.01_w20.csv}\attackthreetwentyfiveq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a4_p0.09_alpha0.01_w20.csv}\attackfournineq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a4_p0.17_alpha0.01_w20.csv}\attackfourseventeenq
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/qt_nmp/a4_p0.25_alpha0.01_w20.csv}\attackfourtwentyfiveq
+ % reading files for pendulum
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a1_p0.09_alpha0.01_w20.csv}\attackonenine
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a1_p0.17_alpha0.01_w20.csv}\attackoneseventeen
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a1_p0.25_alpha0.01_w20.csv}\attackonetwentyfive
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a2_p0.09_alpha0.01_w20.csv}\attacktwonine
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a2_p0.17_alpha0.01_w20.csv}\attacktwoseventeen
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a2_p0.25_alpha0.01_w20.csv}\attacktwotwentyfive
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a3_p0.09_alpha0.01_w20.csv}\attackthreenine
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a3_p0.17_alpha0.01_w20.csv}\attackthreeseventeen
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a3_p0.25_alpha0.01_w20.csv}\attackthreetwentyfive
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a4_p0.09_alpha0.01_w20.csv}\attackfournine
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a4_p0.17_alpha0.01_w20.csv}\attackfourseventeen
+ \pgfplotstableread[col sep=comma]{results_bin_chi2/furuta_zero/a4_p0.25_alpha0.01_w20.csv}\attackfourtwentyfive
+ 
+ % TANK PROCESS -----------------------------------------------------------------------------------------------------------------------------------
+ \nextgroupplot[ylabel style={align=center}, ylabel = {Quadruple tank\\$\aeffect$}, ymax=0.0025]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4] {\attackonenineq};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25, y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackoneseventeenq};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25, y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackonetwentyfiveq};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0025) {$\maxa = 1$};
+
+ \nextgroupplot[ymax=0.0025]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attacktwonineq};
+ \addlegendentry{$\pmiss = 0.09$}
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attacktwoseventeenq};
+ \addlegendentry{$\pmiss = 0.17$}
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attacktwotwentyfiveq};
+ \addlegendentry{$\pmiss = 0.25$}
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0025) {$\maxa = 2$};
+
+ \nextgroupplot[ymax=0.0025]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackthreenineq};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackthreeseventeenq};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackthreetwentyfiveq};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0025) {$\maxa = 3$};
+
+ \nextgroupplot[ymax=0.0025]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackfournineq};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackfourseventeenq};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=(\thisrow{attack}-\thisrow{nominal})/4]{\attackfourtwentyfiveq};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0025) {$\maxa = 4$};
+
+ % PENDULUM -----------------------------------------------------------------------------------------------------------------------------------
+ \nextgroupplot[ylabel style={align=center}, ylabel = {Furuta pendulum\\$\aeffect$}, ymax=0.0001]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25, y expr=\thisrow{attack}-\thisrow{nominal}]{\attackonenine};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25, y expr=\thisrow{attack}-\thisrow{nominal}]{\attackoneseventeen};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2, restrict x to domain=0:25, y expr=\thisrow{attack}-\thisrow{nominal}]{\attackonetwentyfive};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0001) {$\maxa = 1$};
+ 
+ \nextgroupplot[ymax=0.0001]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attacktwonine};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attacktwoseventeen};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attacktwotwentyfive};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0001) {$\maxa = 2$};
+
+ \nextgroupplot[ymax=0.0001]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackthreenine};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackthreeseventeen};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackthreetwentyfive};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0001) {$\maxa = 3$}; 
+
+ \nextgroupplot[ymax=0.0001]
+ \addplot[thick, blue, mark=*]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackfournine};
+ \addplot[thick, red, mark=*, mark options={solid, fill=white}]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackfourseventeen};
+ \addplot[thick, brown, mark=x]
+   table[ x expr=\thisrow{length}-2,restrict x to domain=0:25,y expr=\thisrow{attack}-\thisrow{nominal}]{\attackfourtwentyfive};
+ \node[draw, fill=white, anchor=north east] at (axis cs:25,0.0001) {$\maxa = 4$}; 
+ 
+ \end{groupplot}
+\end{tikzpicture}

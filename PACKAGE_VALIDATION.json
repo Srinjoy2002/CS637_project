@@ -1,0 +1,31 @@
+{
+  "assembled_date": "2026-10-23",
+  "files_checked_before_validation_metadata": 95,
+  "duplicate_file_groups": [],
+  "presentation_pdf_pages": {
+    "presentations/final/main.pdf": 42,
+    "presentations/scripts/detailed_presenter_guide.pdf": 45,
+    "presentations/scripts/short_scripts_and_review.pdf": 6,
+    "presentations/members/abhishek/slides.pdf": 6,
+    "presentations/members/madhavi/slides.pdf": 10,
+    "presentations/members/shubham/slides.pdf": 8,
+    "presentations/members/srinjoy/slides.pdf": 6,
+    "presentations/members/swarali/slides.pdf": 6
+  },
+  "all_five_member_decks_present": true,
+  "all_tex_assets_resolve": true,
+  "final_tex_matches_open_reviewed_source_except_shared_asset_paths": true,
+  "author_source_hashes_verified": true,
+  "all_10_cases_20_policy_replays_match_csv": true,
+  "independent_enumeration_horizons_1_to_5_match_slide_curve": true,
+  "defender_preview_calls": 540,
+  "author_prepare_only_check": "PASS; no solver run requested",
+  "unittest_regressions": "7 passed; see docs/verification_test_log.txt",
+  "notebook_schemas": "both validated",
+  "pdf_export": "42 pages; no overfull boxes after slide-35 layout fix",
+  "excluded": "old project trees, source ZIPs, historical duplicate workspaces, virtual environments, build caches, licence files",
+  "not_executed": "full Gurobi campaigns; full 25-horizon enumeration; optional Plotly/ipywidgets lab (not installed in verification runtime)",
+  "original_source_folders_modified": false,
+  "github_publication": false,
+  "extracted_zip_runtime_check": "PASS: main.py verify executed from a separately extracted copy; all twenty policy replays and author hashes passed"
+}

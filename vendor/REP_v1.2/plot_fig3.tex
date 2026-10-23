@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[right=2cm, left=2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz,pgfplots,pgfplotstable}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{piton}
+
+\pgfplotsset{compat=1.18}
+\pgfplotsset{compat/labels=pre 1.3}
+\usepgfplotslibrary{groupplots}
+
+\renewcommand{\a}{a}
+\newcommand{\maxa}{\bar{\a}}
+\newcommand{\alength}{\ell}
+\newcommand{\vecsize}[1]{n_{#1}}
+\newcommand{\iteration}{w}
+\newcommand{\aeffect}{\omega}
+\newcommand{\pmiss}{\hat{p}_{\text{m}}}
+
+
+\title{Stealthy Computational Delay Attacks on Control Systems}
+
+\begin{document}
+\maketitle
+
+\begin{figure}
+    \centering
+    \include{fig/tests}
+    \vspace{-1cm}
+    \caption{Attack effectiveness $\aeffect$ with different detection mechanisms: binomial test-based detector, geometric test-based detector and combined. The tests are conducted using the hold actuation policy for the quadruple tank and the zero actuation policy for the Furuta pendulum.}
+    \label{fig:effect_test}
+\end{figure}
+
+\end{document}
